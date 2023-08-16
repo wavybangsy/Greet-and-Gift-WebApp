@@ -1,16 +1,24 @@
 // create express app/server instance and make it listen in port 3000.
 
 // Modules
+import "dotenv/config";
 import express from "express";
-import routes from "./routes/routes";
+import router from "./routes/routes.js";
+import exphbs from "express-handlebars";
 
 // port address saved in .env file
 const port = process.env.PORT;
 
 const app = express(); // express app instance
 
+// register templating engine to express app
+app.engine("hbs", exphbs.engine({ extname: "hbs" }));
+// set express' default templating engine
+app.set("view engine", "hbs");
+app.set("views", "./views");
+
 // use router
-app.use(routes);
+app.use(router);
 
 // activate the app instance
 app.listen(port, () => {
