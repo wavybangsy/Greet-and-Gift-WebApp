@@ -3,7 +3,7 @@
 // Modules
 import "dotenv/config";
 import express from "express";
-import router from "./routes/routes.js";
+import routes from "./routes/routes.js";
 import exphbs from "express-handlebars";
 
 // port address saved in .env file
@@ -18,7 +18,7 @@ app.set("view engine", "hbs");
 app.set("views", "./views");
 
 // use router
-app.use(router);
+app.use(routes);
 
 // activate the app instance
 app.listen(port, () => {
