@@ -1,8 +1,18 @@
-// create express app/ server instance and make it listen in port 3000.
-const express = require("express");
+// create express app/server instance and make it listen in port 3000.
+
+// Modules
+import express from "express";
+import routes from "./routes/routes";
+
+const port = process.env.PORT;
+
 const app = express(); // express app instance
 
+// use router
+app.use(routes);
+
 // activate the app instance
-app.listen(3000, () => {
-  console.log("Express app is now listening on Port 3000...");
+app.listen(port, () => {
+  console.log(`Server is running at:`);
+  console.log(`http://localhost:` + port);
 });
