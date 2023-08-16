@@ -4,6 +4,7 @@
 import express from "express";
 import routes from "./routes/routes";
 
+// port address saved in .env file
 const port = process.env.PORT;
 
 const app = express(); // express app instance
