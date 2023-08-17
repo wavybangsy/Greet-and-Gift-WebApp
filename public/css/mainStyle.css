@@ -1,0 +1,19 @@
+:root {
+  --bg-color: #a33030;
+  --bg-envelope: #475968;
+  --bg-envelop-flap: #758a9b;
+  --bg-envelope-tab: #deeaf3;
+  --shadow-color: #393636;
+  --text-color: #152939;
+  --seal-color: #643d64;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

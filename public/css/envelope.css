@@ -1,0 +1,107 @@
+:root {
+  --bg-color: #ffeded;
+  --base: #5e5690;
+  --base-light: #7873a7;
+  --base-dark: #555184;
+  --shadow: #4f4c6b;
+  --letter: #d8d7e5;
+}
+
+* {
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.env-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.env-content {
+  position: relative;
+  perspective: 600px;
+}
+
+.shadow {
+  position: absolute;
+  width: 200px;
+  height: 1px;
+  background: transparent;
+  border-radius: 30%;
+  box-shadow: 50px 100px 10px 5px #eeeef3;
+}
+
+.envelope {
+  position: relative;
+  width: 40rem;
+  height: 22rem;
+  background: linear-gradient(#0c0a20 0.5px, var(--base-light) 0.5px);
+  cursor: pointer;
+}
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30rem;
+  border-top: 15rem solid #7068a4;
+  border-left: 20rem solid transparent;
+  border-right: 20rem solid transparent;
+  box-sizing: border-box;
+  z-index: 30;
+  transform-origin: top;
+}
+
+.envelope::after {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  width: 50rem;
+  height: 22rem;
+  z-index: 25;
+  background: 
+  /*  bottom-right */ linear-gradient(
+        27deg,
+        var(--base-dark) 50%,
+        var(--shadow) 54%,
+        var(--base) 50%
+      )
+      20rem 190px/ 20rem 190px no-repeat,
+    /*  top-right */
+      linear-gradient(
+        149deg,
+        transparent 43%,
+        var(--shadow) 40%,
+        var(--base) 40%
+      )
+      20rem 0px/ 20rem 250px no-repeat,
+    /*  bottom-right */
+      linear-gradient(
+        -27deg,
+        var(--base-dark) 50%,
+        var(--shadow) 54%,
+        var(--base) 50%
+      )
+      0rem 190px/ 20rem 190px no-repeat,
+    /*  top-left */
+      linear-gradient(
+        211deg,
+        transparent 43%,
+        var(--shadow) 40%,
+        var(--base) 40%
+      )
+      0rem 0px/ 20rem 250px no-repeat;
+}

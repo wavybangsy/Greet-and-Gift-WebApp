@@ -1,7 +1,8 @@
 const controller = {
   getHome: function (req, res) {
-    res.render("index", {
-      pageName: "Home",
+    res.render("envelope", {
+      pageName: "Home3",
+      css1: "/static/css/envelope.css",
     });
   },
 };

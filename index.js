@@ -11,10 +11,12 @@ const port = process.env.PORT;
 
 const app = express(); // express app instance
 
-// register templating engine to express app
-app.engine("hbs", exphbs.engine({ extname: "hbs" }));
-// set express' default templating engine
-app.set("view engine", "hbs");
+// Set views folder to 'public' for accessibility
+app.use("/static", express.static("public"));
+
+
+app.engine("hbs", exphbs.engine({ extname: "hbs" })); // register templating engine to express app
+app.set("view engine", "hbs"); // set express' default templating engine
 app.set("views", "./views");
 
 // use router
