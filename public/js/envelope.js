@@ -23,7 +23,7 @@ t1.to(flap, {
   .to(".letters", {
     duration: 0.7,
     ease: "back.out(.4)",
-    translateY: -5,
+    translateY: 5,
     translateZ: 250,
   });
 
@@ -57,19 +57,17 @@ for (const child of stack1) {
 
 stack.addEventListener("click", swap);
 
+/* JavaScript */
 function swap(e) {
-  console.log("HEY");
-  let card = document.querySelector(".flip");
-  let CHcard = document.querySelector(".letter:last-child");
-  console.dir(card);
-  console.log("Target Now", e.target);
-  check = e.target;
-  if (check.className == "flip") {
-    CHcard.style.animation = "swap 700ms forwards";
-    console.log("HEY2");
+  const clickedCard = e.target.closest(".letter");
+  const cardContainer = document.querySelector(".letters");
+
+  if (clickedCard === cardContainer.lastElementChild) {
+    clickedCard.style.animation = "swap 700ms forwards";
+
     setTimeout(() => {
-      CHcard.style.animation = "";
-      stack.prepend(CHcard);
+      clickedCard.style.animation = "";
+      cardContainer.prepend(clickedCard);
     }, 700);
   }
 }

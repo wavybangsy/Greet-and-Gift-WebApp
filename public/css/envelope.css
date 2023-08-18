@@ -121,13 +121,13 @@ body {
   height: 20rem;
   margin-top: 5rem;
   border-radius: 1rem;
-  background-color: #0c0a20;
+  background-color: transparent;
   z-index: 15;
 }
 
-.letters .letter:nth-child(1) {
+.letters .letter:nth-last-child(2) {
   --y: calc(-10% + 15px);
-  transform: translate(-8%, var(--y)) scale(0.95);
+  transform: translate(-8%, var(--y));
 }
 
 .letter {
@@ -137,6 +137,9 @@ body {
   background: var(--letter);
   border-radius: 1rem;
   box-shadow: 0px 5px 7px 0px var(--base);
+  transition: transform 200ms;
+  transition: transform 200ms, z-index 0ms; /* Add transition for z-index */
+  z-index: 0;
 }
 
 .body {
@@ -186,4 +189,16 @@ body {
   font-weight: 700;
   cursor: pointer;
   color: rgb(75, 53, 102);
+}
+
+/* CSS Animation */
+@keyframes swap {
+  50% {
+    transform: translate(-50%, calc(calc(-5% + 15px) - 280px)) scale(0.8)
+      rotate(-5deg);
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: translate(-50%, calc(calc(-50% + 0px) - 15px)) scale(0.5);
+  }
 }
