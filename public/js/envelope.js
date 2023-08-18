@@ -1,15 +1,19 @@
 let t1 = gsap.timeline({ paused: true });
 let flap = CSSRulePlugin.getRule(".envelope::before");
+let sWidth = window.innerWidth;
+const translateZValue = sWidth >= 1000 ? 250 : 100;
 
+console.log(sWidth);
 t1.to(flap, {
   duration: 0.5,
   cssRule: {
     rotateX: 180,
+    zIndex: -1,
   },
 })
   .set(flap, {
     cssRule: {
-      zIndex: 10,
+      zIndex: -1,
     },
   })
   .to(".letters", {
@@ -24,7 +28,7 @@ t1.to(flap, {
     duration: 0.7,
     ease: "back.out(.4)",
     translateY: 5,
-    translateZ: 250,
+    translateZ: translateZValue,
   });
 
 let t2 = gsap.timeline({ paused: true });
